@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas Honey!!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 2rem;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            background-color: #fff;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            font-size: 1rem;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .filter-btn.active {
+            background-color: #2c5282;
+            color: #fff;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .scientific-name {
+            font-style: italic;
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .aka {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sclart's Animal Guide</h1>
+        
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All Species</button>
+            <button class="filter-btn" data-filter="az-birds">Arizona Birds</button>
+            <button class="filter-btn" data-filter="otters">Otters</button>
+            <button class="filter-btn" data-filter="wa-tide-pools">WA Tide Pools</button>
+        </div>
+
+        <div class="gallery">
+            <!-- Arizona Birds -->
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/WWDove.jpg" alt="White-winged Dove">
+                <div class="content">
+                    <div class="name">White-winged Dove</div>
+                    <div class="scientific-name">(Zenaida asiatica)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/MourningDove.jpg" alt="Mourning Dove">
+                <div class="content">
+                    <div class="name">Mourning Dove</div>
+                    <div class="scientific-name">(Zenaida macroura)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/E-CDove.jpg" alt="Eurasian Collared-Dove">
+                <div class="content">
+                    <div class="name">Eurasian Collared-Dove</div>
+                    <div class="scientific-name">(Streptopelia decaocto)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/AnnasHumming.jpg" alt="Anna's Hummingbird">
+                <div class="content">
+                    <div class="name">Anna's Hummingbird</div>
+                    <div class="scientific-name">(Calypte anna)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/CostasHumming.jpg" alt="Costa's Hummingbird">
+                <div class="content">
+                    <div class="name">Costa's Hummingbird</div>
+                    <div class="scientific-name">(Calypte costae)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/B-CHumming.jpg" alt="Black-chinned Hummingbird">
+                <div class="content">
+                    <div class="name">Black-chinned Hummingbird</div>
+                    <div class="scientific-name">(Archilochus alexandri)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/G-TGrackle.jpg" alt="Great-tailed Grackle">
+                <div class="content">
+                    <div class="name">Great-tailed Grackle</div>
+                    <div class="scientific-name">(Quiscalus mexicanus)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Raven.jpg" alt="Common Raven">
+                <div class="content">
+                    <div class="name">Common Raven</div>
+                    <div class="scientific-name">(Corvus corax)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Yellowthroat.jpg" alt="Common Yellowthroat">
+                <div class="content">
+                    <div class="name">Common Yellowthroat</div>
+                    <div class="scientific-name">(Geothlypis trichas)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Tanager.jpg" alt="Western Tanager">
+                <div class="content">
+                    <div class="name">Western Tanager</div>
+                    <div class="scientific-name">(Piranga ludoviciana)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/YellowRump.jpg" alt="Yellow-rumped Warbler">
+                <div class="content">
+                    <div class="name">Yellow-rumped Warbler</div>
+                    <div class="scientific-name">(Setophaga coronata)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Gallinule.jpg" alt="Common Gallinule">
+                <div class="content">
+                    <div class="name">Common Gallinule</div>
+                    <div class="scientific-name">(Gallinula galeata)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/AmericanCoot.jpg" alt="American Coot">
+                <div class="content">
+                    <div class="name">American Coot</div>
+                    <div class="scientific-name">(Fulica americana)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Mallard.jpg" alt="Mallard">
+                <div class="content">
+                    <div class="name">Mallard</div>
+                    <div class="scientific-name">(Anas platyrhynchos)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/P-BGrebe.jpg" alt="Pied-billed Grebe">
+                <div class="content">
+                    <div class="name">Pied-billed Grebe</div>
+                    <div class="scientific-name">(Podilymbus podiceps)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="az-birds">
+                <img src="./images/Sora.jpg" alt="Sora">
+                <div class="content">
+                    <div class="name">Sora</div>
+                    <div class="scientific-name">(Porzana carolina)</div>
+                </div>
+            </div>
+
+            <!-- Otters -->
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/ASCOtter.jpg" alt="Asian Small-clawed Otter">
+                <div class="content">
+                    <div class="name">Asian Small-clawed Otter</div>
+                    <div class="scientific-name">(Aonyx cinerus)</div>
+                    <div class="aka">AKA: oriental small-clawed otter, asian short-clawed otter, ash otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/BetterOtter.jpg" alt="Smooth-coated Otter">
+                <div class="content">
+                    <div class="name">Smooth-coated Otter</div>
+                    <div class="scientific-name">(Lutrogale perspicillata)</div>
+                    <div class="aka">AKA: Indian smooth-coated otter, Asian otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/H-NOtter.jpg" alt="Hairy-nosed Otter">
+                <div class="content">
+                    <div class="name">Hairy-nosed Otter</div>
+                    <div class="scientific-name">(Lutra sumatrana)</div>
+                    <div class="aka">AKA: Sumatran otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/S-NOtter.jpg" alt="Spotted-necked Otter">
+                <div class="content">
+                    <div class="name">Spotted-necked Otter</div>
+                    <div class="scientific-name">(Hydrictis maculicollis)</div>
+                    <div class="aka">AKA: speckled-throated otter, spot-necked otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/ACOtter.jpg" alt="African Clawless Otter">
+                <div class="content">
+                    <div class="name">African Clawless Otter</div>
+                    <div class="scientific-name">(Aonyx capensis)</div>
+                    <div class="aka">AKA: Cape clawless otter, white-cheeked otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/CCOtter.jpg" alt="Congo Clawless Otter">
+                <div class="content">
+                    <div class="name">Congo Clawless Otter</div>
+                    <div class="scientific-name">(Aonyx congicus)</div>
+                    <div class="aka">AKA: White-cheeked otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/EuroOtter.jpg" alt="Eurasian Otter">
+                <div class="content">
+                    <div class="name">Eurasian Otter</div>
+                    <div class="scientific-name">(Lutra lutra)</div>
+                    <div class="aka">AKA: Old world otter, river otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/NAROtter.jpg" alt="North American River Otter">
+                <div class="content">
+                    <div class="name">North American River Otter</div>
+                    <div class="scientific-name">(Lontra canadensis)</div>
+                    <div class="aka">AKA: Northern river otter, river otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/SeaOtter.jpg" alt="Sea Otter">
+                <div class="content">
+                    <div class="name">Sea Otter</div>
+                    <div class="scientific-name">(Enhydra lutris)</div>
+                    <div class="aka">AKA: sea beaver, Kamtchatka otter</div>
+                </div>
+            </div>
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/GiantOtter.jpg" alt="Giant Otter">
+                <div class="content">
+                    <div class="name">Giant Otter</div>
+                    <div class="scientific-name">(Pteronura brasiliensis)</div>
+                    <div class="aka">AKA: ariranha, river wolf, water dog</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/MarineOtter.jpg" alt="Marine Otter">
+                <div class="content">
+                    <div class="name">Marine Otter</div>
+                    <div class="scientific-name">(Lontra felina)</div>
+                    <div class="aka">AKA: huallaca, chingungo, sea cat</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/SROtter.jpg" alt="Southern River Otter">
+                <div class="content">
+                    <div class="name">Southern River Otter</div>
+                    <div class="scientific-name">(Lontra provocax)</div>
+                    <div class="aka">AKA: huillin, little Patagonian wolf, Chilean otter</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="otters">
+                <img src="./images/NeoOtter.jpg" alt="Neotropical Otter">
+                <div class="content">
+                    <div class="name">Neotropical Otter</div>
+                    <div class="scientific-name">(Lontra longicaudis)</div>
+                    <div class="aka">AKA: water dog, taira, water cat, South American river otter, long-tailed otter, little water wolf</div>
+                </div>
+            </div>
+
+            <!-- WA Tide Pools -->
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Ochre Sea Star">
+                <div class="content">
+                    <div class="name">Ochre Sea Star</div>
+                    <div class="scientific-name">(Pisaster ochraceus)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Red Rock Crab">
+                <div class="content">
+                    <div class="name">Red Rock Crab</div>
+                    <div class="scientific-name">(Cancer productus)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Orange Sea Cucumber">
+                <div class="content">
+                    <div class="name">Orange Sea Cucumber</div>
+                    <div class="scientific-name">(Cucumaria miniata)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Wrinkled Purple">
+                <div class="content">
+                    <div class="name">Wrinkled Purple</div>
+                    <div class="scientific-name">(Nucella lamellosa)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Purple Shore Crab">
+                <div class="content">
+                    <div class="name">Purple Shore Crab</div>
+                    <div class="scientific-name">(Hemigrapsus nudus)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Mottled Star">
+                <div class="content">
+                    <div class="name">Mottled Star</div>
+                    <div class="scientific-name">(Evasterias troschelii)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Painted Anemone">
+                <div class="content">
+                    <div class="name">Painted Anemone</div>
+                    <div class="scientific-name">(Urticina grebelnyi)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Lewis's Moon Snail">
+                <div class="content">
+                    <div class="name">Lewis's Moon Snail</div>
+                    <div class="scientific-name">(Neverita lewisii)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Mossy Chiton">
+                <div class="content">
+                    <div class="name">Mossy Chiton</div>
+                    <div class="scientific-name">(Mopalia muscosa)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Moonglow Anemone">
+                <div class="content">
+                    <div class="name">Moonglow Anemone</div>
+                    <div class="scientific-name">(Anthopleura artemisia)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Pacific Lion's Mane">
+                <div class="content">
+                    <div class="name">Pacific Lion's Mane</div>
+                    <div class="scientific-name">(Cyanea ferruginea)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Northern Kelp Crab">
+                <div class="content">
+                    <div class="name">Northern Kelp Crab</div>
+                    <div class="scientific-name">(Pugettia producta)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Thick-horned Nudibranch">
+                <div class="content">
+                    <div class="name">Thick-horned Nudibranch</div>
+                    <div class="scientific-name">(Hermissenda crassicornis)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Plumose Anemone">
+                <div class="content">
+                    <div class="name">Plumose Anemone</div>
+                    <div class="scientific-name">(Metridium senile)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Rockweed Isopod">
+                <div class="content">
+                    <div class="name">Rockweed Isopod</div>
+                    <div class="scientific-name">(Pentidotea wosnesenskii)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Lined Chiton">
+                <div class="content">
+                    <div class="name">Lined Chiton</div>
+                    <div class="scientific-name">(Tonicella lineata)</div>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="wa-tide-pools">
+                <img src="/api/placeholder/400/400" alt="Tidepool Sculpin">
+                <div class="content">
+                    <div class="name">Tidepool Sculpin</div>
+                    <div class="scientific-name">(Oligocottus maculosus)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(btn => btn.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+                    galleryItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'flex';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
